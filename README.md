@@ -1,8 +1,13 @@
 elasticsearch-php-thrift
 ========================
 
-ElasticSearh PHP Thrift Client
+ElasticSearch PHP Thrift transport client
 
-##Requirements
-Thrift 0.9+
-ElasticSearch 1.0.0+ with Thrift Plugin [https://github.com/elasticsearch/elasticsearch-transport-thrift]
+
+## Requirements
+
+* Thrift 0.9 or higher
+* ElasticSearch 1.0.0 or higher with Thrift Plugin
+
+[https://github.com/elasticsearch/elasticsearch-transport-thrift]
+
