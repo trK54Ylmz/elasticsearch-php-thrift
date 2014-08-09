@@ -1,0 +1,26 @@
+{
+    "name" : "trK54Ylmz/elasticsearch",
+    "type" : "library",
+    "description" : "ElasticSearch Thrift client",
+    "keywords" : ["elasticsearch", "thrift", "client"],
+    "homepage" : "http://github.com/trK54Ylmz/elasticsearch-php-thrift",
+    "license" : "GNUv2",
+    "authors" : [
+        {
+            "name" : "Tarık Yılmaz",
+            "email" : "tarikyilmaz.54@gmail.com",
+            "homepage" : "http://tarik-yilmaz.com"
+        }
+    ],
+    "require" : {
+        "php" : ">=5.3.0"
+    },
+    "require-dev": {
+        "apache/thrift": "1.0.*@dev"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "ElasticSearch" : "src/"
+        }
+    }
+}

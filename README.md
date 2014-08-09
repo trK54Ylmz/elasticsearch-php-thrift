@@ -13,7 +13,7 @@ ElasticSearch PHP Thrift transport client
 
 ## Usage
 
-1. Install Thrift C Transport Extension for **performance** (Optional)
+1. Install Thrift C Transport Extension for **performance** (Optional) [compatible with Elasticsearch 1.3.X]
 2. Copy src dir in your development path
 3. Include `autoload.php`
 
