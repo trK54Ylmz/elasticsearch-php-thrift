@@ -2,7 +2,7 @@
     "name" : "trk54ylmz/elasticsearch-thrift",
     "type" : "library",
     "description" : "ElasticSearch Thrift client",
-    "keywords" : ["elasticsearch", "thrift", "client"],
+    "keywords" : ["elasticsearch", "thrift"],
     "homepage" : "http://github.com/trK54Ylmz/elasticsearch-php-thrift",
     "license" : "GNUv2",
     "authors" : [
