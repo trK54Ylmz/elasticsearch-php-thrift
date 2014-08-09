@@ -1,8 +1,7 @@
 <?php
-use Elasticsearch\Core;
-use Elasticsearch\Method;
+namespace Elasticsearch;
 
-class Elasticsearch extends Core
+class Client extends Core
 {
     public function __construct($host = '127.0.0.1', $port = 9500) {
         parent::__construct($host, $port);
