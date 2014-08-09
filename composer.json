@@ -1,5 +1,5 @@
 {
-    "name" : "trk54ylmz/elasticsearch-php-thrift",
+    "name" : "trk54ylmz/elasticsearch-thrift",
     "type" : "library",
     "description" : "ElasticSearch Thrift client",
     "keywords" : ["elasticsearch", "thrift", "client"],
