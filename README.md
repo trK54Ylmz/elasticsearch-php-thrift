@@ -13,9 +13,12 @@ ElasticSearch PHP Thrift transport client
 
 ## Usage
 
-1. Install Thrift C Transport Extension for performance (Optional)
+1. Install Thrift C Transport Extension for **performance** (Optional)
 2. Copy src dir in your development path
 3. Include `autoload.php`
+
+
+### Search
 
 ```php
 require_once 'autoload.php';
@@ -37,4 +40,29 @@ $elasticsearch->setBody($body);
 $result = $elasticsearch->search();
 
 var_dump($result->hits);
+```
+
+### Index
+
+```php
+require_once 'autoload.php';
+
+$elasticsearch = new Elasticsearch();
+
+$body = '
+{
+    "username" : "trK54Ylmz",
+    "email" : "tarik@example.com",
+    "country" : "TR",
+    "logged" : false
+}
+';
+
+$elasticsearch->setIndex('twitter');
+$elasticsearch->setType('users');
+$elasticsearch->setBody($body);
+
+$result = $elasticsearch->index();
+
+var_dump($result);
 ```
