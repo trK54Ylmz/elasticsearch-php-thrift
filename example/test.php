@@ -13,6 +13,7 @@ $body = '{
         "match_all" : {}
     }
 }';
+
 $index = 'twitter';
 $type = 'users';
 

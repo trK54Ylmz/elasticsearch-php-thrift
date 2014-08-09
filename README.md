@@ -49,14 +49,12 @@ require_once 'autoload.php';
 
 $elasticsearch = new Elasticsearch();
 
-$body = '
-{
-    "username" : "trK54Ylmz",
-    "email" : "tarik@example.com",
-    "country" : "TR",
-    "logged" : false
-}
-';
+$body = array(
+    'username' => 'trK54Ylmz',
+    'email' => 'tarik@example.com',
+    'country' => 'TR',
+    'logged' => false
+);
 
 $elasticsearch->setIndex('twitter');
 $elasticsearch->setType('users');
