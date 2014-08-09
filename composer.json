@@ -1,5 +1,5 @@
 {
-    "name" : "trK54Ylmz/elasticsearch",
+    "name" : "trk54ylmz/elasticsearch",
     "type" : "library",
     "description" : "ElasticSearch Thrift client",
     "keywords" : ["elasticsearch", "thrift", "client"],
