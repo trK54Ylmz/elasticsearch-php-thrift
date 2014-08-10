@@ -5,8 +5,8 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 
 ## Requirements
 
-* Thrift 0.9 or higher
-* ElasticSearch 1.0.0 or higher with Thrift Plugin
+* Apache Thrift 0.9 or higher
+* ElasticSearch 1.0.0 or higher with Thrift transport plugin
 
 [https://github.com/elasticsearch/elasticsearch-transport-thrift]
 
@@ -79,3 +79,9 @@ $result = $elasticsearch->index();
 
 var_dump($result);
 ```
+
+## Todo
+
+1. Advanced DSL
+2. Mapping feature
+3. Cluster management

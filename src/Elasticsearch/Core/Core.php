@@ -136,11 +136,13 @@ class Core
                 if ($type[0] == 'application/json') {
                     return json_decode($result->body, true);
                 }
-
-                throw new PHPTException($result->body);
             }
 
-            throw new PHPTException($result->body);
+            if ($result->body != null) {
+                throw new PHPTException($result->body);
+            } else {
+                throw new PHPTException('Elasticsearch doesn\'t work');
+            }
         }
 
         throw new PHPTException('Result couldn\'t parse!');
