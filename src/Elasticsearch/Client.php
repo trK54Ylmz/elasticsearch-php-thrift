@@ -44,7 +44,7 @@ class Client extends Core
         }
 
         $this->setBody(array($this->type => $mapping));
-        $result = $this->sendRequest($url, Method::POST);
+        $result = $this->sendRequest($url, Method::PUT);
 
         return $this->parseResult($result);
     }
