@@ -17,7 +17,8 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Elasticsearch" : "src/"
+            "Elasticsearch" : "src/",
+            "Thrift" : "src/Elasticsearch/Namespaces/"
         }
     }
 }

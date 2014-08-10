@@ -1,7 +1,8 @@
 <?php
-namespace Elasticsearch;
+namespace Elasticsearch\Core;
 
 define('INCLUDEDIR', realpath(__DIR__ . '/../Namespaces/'));
+define('STUBSDIR', realpath(__DIR__ . '/../'));
 
 require_once INCLUDEDIR . '/Thrift/ClassLoader/ThriftClassLoader.php';
 
@@ -9,7 +10,7 @@ use Thrift\ClassLoader\ThriftClassLoader;
 
 $loader = new ThriftClassLoader();
 $loader->registerNamespace('Thrift', INCLUDEDIR);
-$loader->registerDefinition('Elasticsearch', INCLUDEDIR);
+$loader->registerDefinition('Elasticsearch', STUBSDIR);
 $loader->register();
 
 use Thrift\Protocol\TBinaryProtocolAccelerated;
