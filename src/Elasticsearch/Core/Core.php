@@ -2,7 +2,7 @@
 namespace Elasticsearch\Core;
 
 define('INCLUDEDIR', realpath(__DIR__ . '/../Namespaces/'));
-define('STUBSDIR', realpath(__DIR__ . '/../'));
+define('STUBSDIR', realpath(__DIR__ . '/../../'));
 
 require_once INCLUDEDIR . '/Thrift/ClassLoader/ThriftClassLoader.php';
 
