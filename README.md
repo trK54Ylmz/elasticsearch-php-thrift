@@ -1,8 +1,7 @@
-elasticsearch-php-thrift
+ElasticSearch PHP Thrift transport client
 ========================
 
-ElasticSearch PHP Thrift transport client
-
+Low-level Elasticsearch Thrift transport plugin. The library is compatible with Elasticsearch 1.3.X
 
 ## Requirements
 
@@ -13,7 +12,7 @@ ElasticSearch PHP Thrift transport client
 
 ## Usage
 
-1. Install Thrift C Transport Extension for **performance** (Optional) [compatible with Elasticsearch 1.3.X]
+1. Install Thrift C Transport Extension for **performance** (Optional)
 
     ```shell
     cd lib/ThriftExt/thrift_protocol
