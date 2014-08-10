@@ -18,7 +18,11 @@ use Thrift\Transport\TSocket;
 use Thrift\Transport\TBufferedTransport;
 use Thrift\Exception\TException;
 
-use Elasticsearch\RestClient as ESRest;
+use Elasticsearch\RestClient;
+use Elasticsearch\Method;
+use Elasticsearch\RestRequest;
+use Elasticsearch\RestResponse;
+use Elasticsearch\Exception\TException as PHPTException;
 
 class Core
 {
@@ -37,7 +41,7 @@ class Core
             $this->socket = new TSocket($host, $port);
             $this->transport = new TBufferedTransport($this->socket, 1024, 1024);
             $protocol = new TBinaryProtocolAccelerated($this->transport);
-            $this->client = new ESRest($protocol);
+            $this->client = new RestClient($protocol);
             $this->transport->open();
             $this->connected = true;
         } catch(TException $e) {
@@ -133,13 +137,13 @@ class Core
                     return json_decode($result->body, true);
                 }
 
-                throw new Exception($result->body);
+                throw new PHPTException($result->body);
             }
 
-            throw new Exception($result->body);
+            throw new PHPTException($result->body);
         }
 
-        throw new Exception('Result couldn\'t parse!');
+        throw new PHPTException('Result couldn\'t parse!');
     }
 
     /**

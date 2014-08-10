@@ -1,7 +1,9 @@
 <?php
 namespace Elasticsearch;
 
+use Elasticsearch\Admin\Mapping;
 use Elasticsearch\Core\Core;
+use Elasticsearch\Exception\TException;
 
 class Client extends Core
 {
@@ -32,12 +34,12 @@ class Client extends Core
 
     public function mapping($mapping) {
         if ($this->index == null && $this->type == null) {
-            throw new Exception('Please specify index and type names');
+            throw new TException('Please specify index and type names');
         }
 
         $url = $this->generateUrl('/_mapping');
 
-        if ($mapping instanceof \Elasticsearch\Admin\Mapping) {
+        if ($mapping instanceof Mapping) {
             $mapping = $mapping->getMapping();
         } else if (is_array($mapping)) {
             $mapping = array('properties' => $mapping);
