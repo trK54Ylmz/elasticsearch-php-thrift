@@ -14,6 +14,14 @@ ElasticSearch PHP Thrift transport client
 ## Usage
 
 1. Install Thrift C Transport Extension for **performance** (Optional) [compatible with Elasticsearch 1.3.X]
+
+    ```shell
+    cd lib/ThriftExt/thrift_protocol
+    phpize --clean && phpize
+    ./configure
+    make
+    sudo make install
+    ```
 2. Create `composer.json`:
 
     ```json
