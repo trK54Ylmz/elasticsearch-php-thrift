@@ -1,5 +1,5 @@
 <?php
-$elasticsearch = new ElasticSearch();
+$elasticsearch = new Elasticsearch\Client();
 
 if (!$elasticsearch->isConnected()) {
     echo 'PHP couldn\'t connect to Elasticsearch';
