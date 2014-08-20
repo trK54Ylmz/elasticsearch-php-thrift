@@ -1,16 +1,11 @@
 <?php
 namespace Elasticsearch\Core;
 
-define('INCLUDEDIR', realpath(__DIR__ . '/../Namespaces/'));
-define('STUBSDIR', realpath(__DIR__ . '/../../'));
-
-require_once INCLUDEDIR . '/Thrift/ClassLoader/ThriftClassLoader.php';
-
 use Thrift\ClassLoader\ThriftClassLoader;
 
 $loader = new ThriftClassLoader();
-$loader->registerNamespace('Thrift', INCLUDEDIR);
-$loader->registerDefinition('Elasticsearch', STUBSDIR);
+$loader->registerNamespace('Thrift', realpath(__DIR__ . '/../Namespaces/'));
+$loader->registerDefinition('Elasticsearch', realpath(__DIR__ . '/../../'));
 $loader->register();
 
 use Thrift\Protocol\TBinaryProtocolAccelerated;
@@ -74,7 +69,7 @@ class Core
         }
     }
 
-    protected function generateUrl($requestType, array $params = array()) {
+    protected function generateUrl($requestType = null, array $params = array()) {
         $url = '/';
 
         if ($this->index != null) {
@@ -129,6 +124,11 @@ class Core
         }
     }
 
+    /**
+     * @param $result
+     * @throws \Elasticsearch\Exception\TException
+     * @return array Results
+     */
     public function parseResult(&$result) {
         if ($result instanceof RestResponse) {
             if ($result->status == 200) {

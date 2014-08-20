@@ -6,7 +6,7 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 ## Requirements
 
 * Apache Thrift 0.9 or higher
-* ElasticSearch 1.0.0 or higher with Thrift transport plugin
+* Elasticsearch 1.0.0 or higher with Thrift transport plugin
 
 [https://github.com/elasticsearch/elasticsearch-transport-thrift]
 
