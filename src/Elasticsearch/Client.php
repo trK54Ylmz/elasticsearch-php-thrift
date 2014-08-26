@@ -1,12 +1,14 @@
 <?php
 namespace Elasticsearch;
 
-use Elasticsearch\Admin\Mapping;
+use Elasticsearch\Admin\Indices;
 use Elasticsearch\Core\Core;
 use Elasticsearch\Exception\TException;
 
 class Client extends Core
 {
+    protected $indices;
+
     public function __construct(array $hosts = array(array('127.0.0.1', 9500))) {
         $node = array_rand($hosts);
         $size = count($node);
@@ -46,30 +48,21 @@ class Client extends Core
     }
 
     public function delete() {
-        $url = $this->generateUrl();
+        if (empty($this->id)) {
+            throw new TException('Document id is empty! Please specify document id');
+        }
+
+        $url = $this->generateUrl($this->id);
         $result = $this->sendRequest($url, Method::DELETE);
 
         return $this->parseResult($result);
     }
 
-    public function mapping($mapping) {
-        if ($this->index == null && $this->type == null) {
-            throw new TException('Please specify index and type names');
+    public function indices() {
+        if ($this->indices == null) {
+            $this->indices =& new Indices();
         }
 
-        $url = $this->generateUrl('/_mapping');
-
-        if ($mapping instanceof Mapping) {
-            $mapping = $mapping->getMapping();
-        } else if (is_array($mapping)) {
-            $mapping = array('properties' => $mapping);
-        } else {
-            return false;
-        }
-
-        $this->setBody(array($this->type => $mapping));
-        $result = $this->sendRequest($url, Method::PUT);
-
-        return $this->parseResult($result);
+        return $this->indices;
     }
 }

@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 $elasticsearch = new Elasticsearch\Client();
 
 if (!$elasticsearch->isConnected()) {

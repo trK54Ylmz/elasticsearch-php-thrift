@@ -10,6 +10,11 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 
 [https://github.com/elasticsearch/elasticsearch-transport-thrift]
 
+## Performance
+
+Official PHP Client
+
+
 ## Usage
 
 1. Install Thrift C++ Transport Extension for **performance** (Optional)
@@ -36,7 +41,7 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 ### Search
 
 ```php
-require_once 'vendor/autoload.php';
+require 'vendor/autoload.php';
 
 $elasticsearch = new Elasticsearch\Client();
 
@@ -57,11 +62,9 @@ $result = $elasticsearch->search();
 var_dump($result->hits);
 ```
 
-### Index
+### Index a document
 
 ```php
-require_once 'vendor/autoload.php';
-
 $elasticsearch = new Elasticsearch\Client();
 
 $body = array(
@@ -76,8 +79,18 @@ $elasticsearch->setType('users');
 $elasticsearch->setBody($body);
 
 $result = $elasticsearch->index();
+```
 
-var_dump($result);
+### Get a document
+
+```php
+$elasticsearch = new Elasticsearch\Client();
+
+$elasticsearch->setIndex('twitter');
+$elasticsearch->setType('users');
+$elasticsearch->setId('1');
+
+$result = $elasticsearch->get();
 ```
 
 ## Todo
