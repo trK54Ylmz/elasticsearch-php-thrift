@@ -41,8 +41,19 @@ class Client extends Core
     }
 
     public function get() {
+        if (empty($this->id)) {
+            throw new TException('Document id is empty! Please specify document id');
+        }
+
         $url = $this->generateUrl($this->id);
         $result = $this->sendRequest($url, Method::GET);
+
+        return $this->parseResult($result);
+    }
+
+    public function update($method = Method::POST) {
+        $url = $this->generateUrl($this->id);
+        $result = $this->sendRequest($url, $method);
 
         return $this->parseResult($result);
     }

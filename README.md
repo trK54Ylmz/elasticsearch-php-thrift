@@ -12,7 +12,7 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 
 ## Performance
 
-Official PHP Client
+Almost Elasticsearch Thrift Client (Thrift extension installed) **3X** faster than Elasticsearch Official PHP Client
 
 
 ## Usage
@@ -91,6 +91,18 @@ $elasticsearch->setType('users');
 $elasticsearch->setId('1');
 
 $result = $elasticsearch->get();
+```
+
+### Delete a document
+
+```php
+$elasticsearch = new Elasticsearch\Client();
+
+$elasticsearch->setIndex('twitter');
+$elasticsearch->setType('users');
+$elasticsearch->setId('1');
+
+$elasticsearch->delete();
 ```
 
 ## Todo
