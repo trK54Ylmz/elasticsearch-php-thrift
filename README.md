@@ -12,12 +12,11 @@ Low-level Elasticsearch Thrift transport plugin. The library is compatible with 
 
 ## Performance
 
-Almost Elasticsearch Thrift Client (Thrift extension installed) **3X** faster than Elasticsearch Official PHP Client
-
+Elasticsearch Thrift Client (Thrift extension installed) almost **3x** times faster than Elasticsearch Official PHP Client
 
 ## Usage
 
-1. Install Thrift C++ Transport Extension for **performance** (Optional)
+1. Install Thrift C++ Transport Extension for **performance** (Optional but recommended)
 
     ```shell
     cd lib/ThriftExt/thrift_protocol
@@ -91,6 +90,25 @@ $elasticsearch->setType('users');
 $elasticsearch->setId('1');
 
 $result = $elasticsearch->get();
+```
+
+### Update a document
+
+```php
+$elasticsearch = new Elasticsearch\Client();
+
+$body = array(
+    'doc' => array(
+        'logged' => false
+    )
+);
+
+$elasticsearch->setIndex('twitter');
+$elasticsearch->setType('users');
+$elasticsearch->setId('1');
+$elasticsearch->setBody($body);
+
+$elasticsearch->update();
 ```
 
 ### Delete a document
